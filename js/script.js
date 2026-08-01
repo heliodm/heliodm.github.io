@@ -2,13 +2,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const navbar = document.getElementById('navbar');
   const btnTopo = document.getElementById('btn-topo');
   const typedEl = document.getElementById('typed');
+  const scrollProgress = document.getElementById('scroll-progress');
 
   // Ano dinâmico no footer
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Navbar com fundo ao rolar
+  // Navbar com fundo, botão topo e barra de progresso ao rolar
   function handleScroll() {
-    if (window.scrollY > 50) {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (docHeight > 0) {
+      scrollProgress.style.width = (scrollTop / docHeight) * 100 + '%';
+    }
+
+    if (scrollTop > 50) {
       navbar.classList.add('scrolled');
       btnTopo.classList.add('show');
     } else {
@@ -88,9 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
   digitar();
 
   // Animações ao rolar (reveal)
-  const revealEls = document.querySelectorAll('.service-card, .info-card, .skill-card, .contact-card');
-  revealEls.forEach(function (el) {
+  const revealEls = document.querySelectorAll('.service-card, .info-card, .skill-card, .contact-card, .link-btn');
+
+  revealEls.forEach(function (el, index) {
     el.classList.add('reveal');
+    el.style.transitionDelay = index % 4 * 0.1 + 's';
   });
 
   const observer = new IntersectionObserver(
@@ -98,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          entry.target.style.transitionDelay = '0s';
           observer.unobserve(entry.target);
         }
       });
