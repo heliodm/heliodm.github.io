@@ -4,22 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfólio e currículo de Hélio Mendonça - Desenvolvedor Web (PHP, MySQL, HTML, CSS, JavaScript, Bootstrap, WordPress e Moodle)">
+  <meta name="theme-color" content="#141430">
   <title>Hélio Mendonça | Desenvolvedor Web</title>
+
+  <link rel="canonical" href="https://heliodm.github.io/">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://heliodm.github.io/">
+  <meta property="og:site_name" content="Hélio Mendonça">
+  <meta property="og:title" content="Hélio Mendonça | Desenvolvedor Web">
+  <meta property="og:description" content="Portfólio e currículo de Hélio Mendonça - Desenvolvedor Web (PHP, MySQL, HTML, CSS, JavaScript, Bootstrap, WordPress e Moodle)">
+  <meta property="og:image" content="https://heliodm.github.io/img/favicon.svg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hélio Mendonça | Desenvolvedor Web">
+  <meta name="twitter:description" content="Portfólio e currículo de Hélio Mendonça - Desenvolvedor Web.">
+  <meta name="twitter:image" content="https://heliodm.github.io/img/favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hélio Mendonça",
+    "jobTitle": "Desenvolvedor Web",
+    "description": "Curso de Recursos Humanos, coração de desenvolvedor. Crio páginas e sistemas web com PHP, MySQL, HTML, CSS, JavaScript, Bootstrap, WordPress e Moodle.",
+    "url": "https://heliodm.github.io/",
+    "knowsAbout": ["PHP", "MySQL", "HTML", "CSS", "JavaScript", "Bootstrap", "WordPress", "Moodle"],
+    "sameAs": [
+      "https://github.com/heliodm",
+      "https://www.linkedin.com/",
+      "https://wa.me/5500000000000"
+    ]
+  }
+  </script>
+
+  <script>document.documentElement.classList.add('js');</script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
   <!-- Barra de progresso de scroll -->
-  <div id="scroll-progress" class="scroll-progress"></div>
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="navbar">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="navbar" aria-label="Menu principal">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#inicio">&lt;Hélio /&gt;</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
@@ -30,6 +69,7 @@
           <li class="nav-item"><a class="nav-link active" href="#inicio">Início</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
           <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
           <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>
           <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
@@ -38,33 +78,37 @@
     </div>
   </nav>
 
+  <!-- Conteúdo principal -->
+  <main id="conteudo">
+
   <!-- Início / Hero -->
   <header id="inicio" class="hero d-flex align-items-center">
     <div class="container">
       <div class="row align-items-center justify-content-center g-5">
         <div class="col-lg-6 text-center text-lg-start">
-          <span class="hero-badge d-inline-block mb-3"><i class="bi bi-stars me-2"></i>Olá, eu sou</span>
+          <span class="hero-badge d-inline-block mb-3"><i aria-hidden="true" class="bi bi-stars me-2"></i>Olá, eu sou</span>
           <h1 class="hero-title fw-bold mb-2">Hélio Mendonça</h1>
-          <p class="hero-subtitle lead" id="typed"></p>
+          <p class="hero-subtitle lead" id="typed">Desenvolvedor Web</p>
           <p class="hero-text mt-3 mb-4">
             Curso de Recursos Humanos, coração de desenvolvedor. Transformo ideias em
             páginas e sistemas web funcionais.
           </p>
           <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
-            <a href="#contato" class="btn btn-primary btn-lg"><i class="bi bi-send me-2"></i>Fale comigo</a>
-            <a href="#links" class="btn btn-outline-light btn-lg"><i class="bi bi-link-45deg me-2"></i>Meus links</a>
+            <a href="#contato" class="btn btn-primary btn-lg"><i aria-hidden="true" class="bi bi-send me-2"></i>Fale comigo</a>
+            <a href="#links" class="btn btn-outline-light btn-lg"><i aria-hidden="true" class="bi bi-link-45deg me-2"></i>Meus links</a>
+            <a href="assets/CV-Helio-Mendonca.pdf" download class="btn btn-outline-light btn-lg"><i aria-hidden="true" class="bi bi-file-earmark-arrow-down me-2"></i>Baixar CV</a>
           </div>
           <div class="hero-stats mt-4 justify-content-center justify-content-lg-start">
             <div class="hero-stat">
-              <strong>8+</strong>
+              <strong aria-label="Mais de oito tecnologias dominadas">8+</strong>
               <span>Tecnologias</span>
             </div>
             <div class="hero-stat">
-              <strong>3</strong>
+              <strong aria-label="Três áreas de atuação">3</strong>
               <span>Áreas de atuação</span>
             </div>
             <div class="hero-stat">
-              <strong>100%</strong>
+              <strong aria-label="Dedicação total">100%</strong>
               <span>Dedicação</span>
             </div>
           </div>
@@ -72,18 +116,18 @@
         <div class="col-lg-6 d-none d-lg-block">
           <div class="hero-visual mx-auto">
             <div class="hero-avatar">
-              <i class="bi bi-person-fill"></i>
+              <i aria-hidden="true" class="bi bi-person-fill"></i>
             </div>
-            <div class="float-chip chip-1"><i class="bi bi-filetype-php"></i> PHP</div>
-            <div class="float-chip chip-2"><i class="bi bi-bootstrap"></i> Bootstrap</div>
-            <div class="float-chip chip-3"><i class="bi bi-wordpress"></i> WordPress</div>
-            <div class="float-chip chip-4"><i class="bi bi-database"></i> MySQL</div>
+            <div class="float-chip chip-1"><i aria-hidden="true" class="bi bi-filetype-php"></i> PHP</div>
+            <div class="float-chip chip-2"><i aria-hidden="true" class="bi bi-bootstrap"></i> Bootstrap</div>
+            <div class="float-chip chip-3"><i aria-hidden="true" class="bi bi-wordpress"></i> WordPress</div>
+            <div class="float-chip chip-4"><i aria-hidden="true" class="bi bi-database"></i> MySQL</div>
           </div>
         </div>
       </div>
     </div>
     <div class="hero-scroll d-none d-md-block">
-      <a href="#sobre" aria-label="Rolar para baixo"><i class="bi bi-chevron-double-down"></i></a>
+      <a href="#sobre" aria-label="Rolar para baixo"><i aria-hidden="true" class="bi bi-chevron-double-down"></i></a>
     </div>
   </header>
 
@@ -95,14 +139,14 @@
       <div class="row align-items-center mt-5 g-4">
         <div class="col-lg-4 text-center">
           <div class="avatar">
-            <i class="bi bi-person-fill"></i>
+            <i aria-hidden="true" class="bi bi-person-fill"></i>
           </div>
           <h4 class="mt-3 mb-1">Hélio Mendonça</h4>
           <p class="text-muted mb-2">Desenvolvedor Web</p>
           <div class="d-flex justify-content-center gap-2">
-            <a href="https://github.com/heliodm" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="mailto:contato@heliodm.com" class="social-btn" aria-label="E-mail"><i class="bi bi-envelope"></i></a>
+            <a href="https://github.com/heliodm" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><i aria-hidden="true" class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><i aria-hidden="true" class="bi bi-linkedin"></i></a>
+            <a href="mailto:contato@heliodm.com" class="social-btn" aria-label="E-mail"><i aria-hidden="true" class="bi bi-envelope"></i></a>
           </div>
         </div>
         <div class="col-lg-8">
@@ -121,7 +165,7 @@
           <div class="row mt-4 g-3">
             <div class="col-sm-6">
               <div class="info-card">
-                <i class="bi bi-mortarboard"></i>
+                <i aria-hidden="true" class="bi bi-mortarboard"></i>
                 <div>
                   <strong>Formação</strong>
                   <span>Recursos Humanos</span>
@@ -130,7 +174,7 @@
             </div>
             <div class="col-sm-6">
               <div class="info-card">
-                <i class="bi bi-code-slash"></i>
+                <i aria-hidden="true" class="bi bi-code-slash"></i>
                 <div>
                   <strong>Foco</strong>
                   <span>Desenvolvimento Web</span>
@@ -151,73 +195,139 @@
       <div class="row g-4 mt-4 justify-content-center" id="skills-list">
         <div class="col-6 col-md-4 col-lg-3">
           <div class="skill-card text-center" data-level="90">
-            <i class="bi bi-filetype-php"></i>
+            <i aria-hidden="true" class="bi bi-filetype-php"></i>
             <h5>PHP</h5>
             <div class="progress">
-              <div class="progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="PHP - 90%"></div>
             </div>
+            <span class="skill-percent" aria-hidden="true">90%</span>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="skill-card text-center" data-level="85">
-            <i class="bi bi-database"></i>
+            <i aria-hidden="true" class="bi bi-database"></i>
             <h5>MySQL</h5>
             <div class="progress">
-              <div class="progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="MySQL - 85%"></div>
             </div>
+            <span class="skill-percent" aria-hidden="true">85%</span>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="skill-card text-center" data-level="95">
-            <i class="bi bi-filetype-html"></i>
+            <i aria-hidden="true" class="bi bi-filetype-html"></i>
             <h5>HTML</h5>
             <div class="progress">
-              <div class="progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="HTML - 95%"></div>
             </div>
+            <span class="skill-percent" aria-hidden="true">95%</span>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="skill-card text-center" data-level="90">
-            <i class="bi bi-filetype-css"></i>
+            <i aria-hidden="true" class="bi bi-filetype-css"></i>
             <h5>CSS</h5>
             <div class="progress">
-              <div class="progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="CSS - 90%"></div>
             </div>
+            <span class="skill-percent" aria-hidden="true">90%</span>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="skill-card text-center" data-level="85">
-            <i class="bi bi-filetype-js"></i>
+            <i aria-hidden="true" class="bi bi-filetype-js"></i>
             <h5>JavaScript</h5>
             <div class="progress">
-              <div class="progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript - 85%"></div>
             </div>
+            <span class="skill-percent" aria-hidden="true">85%</span>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="skill-card text-center" data-level="90">
-            <i class="bi bi-bootstrap"></i>
+            <i aria-hidden="true" class="bi bi-bootstrap"></i>
             <h5>Bootstrap</h5>
             <div class="progress">
-              <div class="progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Bootstrap - 90%"></div>
             </div>
+            <span class="skill-percent" aria-hidden="true">90%</span>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="skill-card text-center" data-level="80">
-            <i class="bi bi-wordpress"></i>
+            <i aria-hidden="true" class="bi bi-wordpress"></i>
             <h5>WordPress</h5>
             <div class="progress">
-              <div class="progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="WordPress - 80%"></div>
             </div>
+            <span class="skill-percent" aria-hidden="true">80%</span>
           </div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="skill-card text-center" data-level="75">
-            <i class="bi bi-mortarboard"></i>
+            <i aria-hidden="true" class="bi bi-mortarboard"></i>
             <h5>Moodle</h5>
             <div class="progress">
-              <div class="progress-bar" style="width: 0%"></div>
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Moodle - 75%"></div>
+            </div>
+            <span class="skill-percent" aria-hidden="true">75%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos" class="section">
+    <div class="container">
+      <h2 class="section-title text-center">Projetos</h2>
+      <p class="section-subtitle text-center">Alguns trabalhos que desenvolvi</p>
+      <div class="row g-4 mt-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-thumb thumb-1"><i aria-hidden="true" class="bi bi-window-stack"></i></div>
+            <div class="project-body">
+              <h5>Landing Page Institucional</h5>
+              <p>Página de apresentação responsiva, com animações e formulário de contato.</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>Bootstrap</span><span>JavaScript</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/heliodm" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Código</a>
+                <a href="#" class="btn btn-sm btn-primary">Ver demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-thumb thumb-2"><i aria-hidden="true" class="bi bi-database-gear"></i></div>
+            <div class="project-body">
+              <h5>Sistema Web em PHP</h5>
+              <p>Sistema dinâmico com cadastro, login e painel administrativo em PHP e MySQL.</p>
+              <div class="project-tags">
+                <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/heliodm" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Código</a>
+                <a href="#" class="btn btn-sm btn-primary">Ver demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-thumb thumb-3"><i aria-hidden="true" class="bi bi-wordpress"></i></div>
+            <div class="project-body">
+              <h5>Site WordPress</h5>
+              <p>Site institucional com tema personalizado, otimizado para busca e responsivo.</p>
+              <div class="project-tags">
+                <span>WordPress</span><span>PHP</span><span>CSS</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="btn btn-sm btn-outline-primary">Código</a>
+                <a href="#" class="btn btn-sm btn-primary">Ver demo</a>
+              </div>
             </div>
           </div>
         </div>
@@ -233,42 +343,42 @@
       <div class="row g-4 mt-4">
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
-            <i class="bi bi-window-stack"></i>
+            <i aria-hidden="true" class="bi bi-window-stack"></i>
             <h5>Sites e Landing Pages</h5>
             <p>Criação de páginas institucionais e landing pages responsivas, rápidas e com design moderno.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
-            <i class="bi bi-database-gear"></i>
+            <i aria-hidden="true" class="bi bi-database-gear"></i>
             <h5>Sistemas Web em PHP</h5>
             <p>Desenvolvimento de sistemas dinâmicos com PHP e MySQL, sob medida para cada necessidade.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
-            <i class="bi bi-wordpress"></i>
+            <i aria-hidden="true" class="bi bi-wordpress"></i>
             <h5>Sites em WordPress</h5>
             <p>Implantação, personalização e manutenção de sites, blogs e lojas em WordPress.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
-            <i class="bi bi-mortarboard"></i>
+            <i aria-hidden="true" class="bi bi-mortarboard"></i>
             <h5>Plataformas Moodle</h5>
             <p>Instalação, customização e suporte a ambientes de ensino a distância com Moodle.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
-            <i class="bi bi-phone"></i>
+            <i aria-hidden="true" class="bi bi-phone"></i>
             <h5>Layout Responsivo</h5>
             <p>Interfaces adaptáveis a qualquer tela, do celular ao desktop, com HTML, CSS e Bootstrap.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
-            <i class="bi bi-gear"></i>
+            <i aria-hidden="true" class="bi bi-gear"></i>
             <h5>Manutenção e Ajustes</h5>
             <p>Correção de bugs, melhorias de performance e atualizações de projetos existentes.</p>
           </div>
@@ -284,44 +394,52 @@
       <p class="section-subtitle text-center">Escolha um atalho e vamos conversar</p>
       <div class="links-box mx-auto mt-5">
         <a href="https://github.com/heliodm" target="_blank" rel="noopener" class="link-btn link-github">
-          <span class="link-icon"><i class="bi bi-github"></i></span>
+          <span class="link-icon"><i aria-hidden="true" class="bi bi-github"></i></span>
           <span class="link-body">
             <span class="link-label">GitHub</span>
             <span class="link-desc">Códigos e projetos</span>
           </span>
-          <span class="link-arrow"><i class="bi bi-arrow-right"></i></span>
+          <span class="link-arrow"><i aria-hidden="true" class="bi bi-arrow-right"></i></span>
         </a>
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="link-btn link-linkedin">
-          <span class="link-icon"><i class="bi bi-linkedin"></i></span>
+          <span class="link-icon"><i aria-hidden="true" class="bi bi-linkedin"></i></span>
           <span class="link-body">
             <span class="link-label">LinkedIn</span>
             <span class="link-desc">Perfil profissional</span>
           </span>
-          <span class="link-arrow"><i class="bi bi-arrow-right"></i></span>
+          <span class="link-arrow"><i aria-hidden="true" class="bi bi-arrow-right"></i></span>
         </a>
         <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="link-btn link-whatsapp">
-          <span class="link-icon"><i class="bi bi-whatsapp"></i></span>
+          <span class="link-icon"><i aria-hidden="true" class="bi bi-whatsapp"></i></span>
           <span class="link-body">
             <span class="link-label">WhatsApp</span>
             <span class="link-desc">Conversar direto</span>
           </span>
-          <span class="link-arrow"><i class="bi bi-arrow-right"></i></span>
+          <span class="link-arrow"><i aria-hidden="true" class="bi bi-arrow-right"></i></span>
         </a>
         <a href="mailto:contato@heliodm.com" class="link-btn link-email">
-          <span class="link-icon"><i class="bi bi-envelope"></i></span>
+          <span class="link-icon"><i aria-hidden="true" class="bi bi-envelope"></i></span>
           <span class="link-body">
             <span class="link-label">E-mail</span>
             <span class="link-desc">contato@heliodm.com</span>
           </span>
-          <span class="link-arrow"><i class="bi bi-arrow-right"></i></span>
+          <span class="link-arrow"><i aria-hidden="true" class="bi bi-arrow-right"></i></span>
         </a>
         <a href="https://github.com/heliodm/heliodm.github.io" target="_blank" rel="noopener" class="link-btn link-site">
-          <span class="link-icon"><i class="bi bi-globe2"></i></span>
+          <span class="link-icon"><i aria-hidden="true" class="bi bi-globe2"></i></span>
           <span class="link-body">
             <span class="link-label">Portfólio</span>
             <span class="link-desc">Este site</span>
           </span>
-          <span class="link-arrow"><i class="bi bi-arrow-right"></i></span>
+          <span class="link-arrow"><i aria-hidden="true" class="bi bi-arrow-right"></i></span>
+        </a>
+        <a href="assets/CV-Helio-Mendonca.pdf" download class="link-btn link-cv">
+          <span class="link-icon"><i aria-hidden="true" class="bi bi-file-earmark-person"></i></span>
+          <span class="link-body">
+            <span class="link-label">Currículo (PDF)</span>
+            <span class="link-desc">Baixar meu currículo</span>
+          </span>
+          <span class="link-arrow"><i aria-hidden="true" class="bi bi-arrow-down-circle"></i></span>
         </a>
       </div>
     </div>
@@ -343,46 +461,46 @@
       <p class="section-subtitle text-center">Ficou interessado? Vamos conversar!</p>
       <div class="row justify-content-center mt-5">
         <div class="col-lg-8">
-          <form id="contact-form" novalidate>
+          <form id="contact-form" data-email="contato@heliodm.com" novalidate>
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Seu nome" required>
+                <input type="text" class="form-control" id="nome" placeholder="Seu nome" autocomplete="name" required>
               </div>
               <div class="col-md-6">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+                <input type="email" class="form-control" id="email" placeholder="seu@email.com" autocomplete="email" required>
               </div>
               <div class="col-12">
                 <label for="mensagem" class="form-label">Mensagem</label>
-                <textarea class="form-control" id="mensagem" rows="5" placeholder="Conte sobre o seu projeto..." required></textarea>
+                <textarea class="form-control" id="mensagem" rows="5" placeholder="Conte sobre o seu projeto..." autocomplete="off" required></textarea>
               </div>
               <div class="col-12 text-center">
                 <button type="submit" class="btn btn-primary btn-lg">Enviar mensagem</button>
               </div>
             </div>
           </form>
-          <div id="form-status" class="text-center mt-3"></div>
+          <div id="form-status" class="text-center mt-3" aria-live="polite"></div>
         </div>
       </div>
       <div class="row mt-5 g-4 text-center">
         <div class="col-md-4">
           <div class="contact-card">
-            <i class="bi bi-envelope"></i>
+            <i aria-hidden="true" class="bi bi-envelope"></i>
             <h6>E-mail</h6>
             <a href="mailto:contato@heliodm.com">contato@heliodm.com</a>
           </div>
         </div>
         <div class="col-md-4">
           <div class="contact-card">
-            <i class="bi bi-github"></i>
+            <i aria-hidden="true" class="bi bi-github"></i>
             <h6>GitHub</h6>
             <a href="https://github.com/heliodm" target="_blank" rel="noopener">github.com/heliodm</a>
           </div>
         </div>
         <div class="col-md-4">
           <div class="contact-card">
-            <i class="bi bi-linkedin"></i>
+            <i aria-hidden="true" class="bi bi-linkedin"></i>
             <h6>LinkedIn</h6>
             <a href="https://www.linkedin.com/" target="_blank" rel="noopener">/in/heliodm</a>
           </div>
@@ -390,6 +508,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
@@ -400,14 +520,14 @@
   </footer>
 
   <button id="btn-topo" class="btn btn-primary btn-topo" aria-label="Voltar ao topo">
-    <i class="bi bi-arrow-up"></i>
+    <i aria-hidden="true" class="bi bi-arrow-up"></i>
   </button>
 
   <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn-whatsapp" aria-label="WhatsApp">
-    <i class="bi bi-whatsapp"></i>
+    <i aria-hidden="true" class="bi bi-whatsapp"></i>
   </a>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>

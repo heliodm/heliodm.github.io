@@ -3,12 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const btnTopo = document.getElementById('btn-topo');
   const typedEl = document.getElementById('typed');
   const scrollProgress = document.getElementById('scroll-progress');
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.navbar .nav-link');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Ano dinâmico no footer
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Navbar com fundo, botão topo e barra de progresso ao rolar
-  function handleScroll() {
+  // UI ao rolar: progresso, navbar, botão topo e link ativo (unificado + rAF)
+  function updateScrollUI() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
@@ -23,17 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
       navbar.classList.remove('scrolled');
       btnTopo.classList.remove('show');
     }
-  }
 
-  window.addEventListener('scroll', handleScroll);
-  handleScroll();
-
-  // Link ativo no menu conforme a seção visível
-  const sections = document.querySelectorAll('section[id], header[id]');
-  const navLinks = document.querySelectorAll('.navbar .nav-link');
-
-  window.addEventListener('scroll', function () {
-    const pos = window.scrollY + 100;
+    const pos = scrollTop + 100;
     let current = '';
     sections.forEach(function (section) {
       if (pos >= section.offsetTop && pos < section.offsetTop + section.offsetHeight) {
@@ -41,11 +35,28 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
     navLinks.forEach(function (link) {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
     });
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        updateScrollUI();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', updateScrollUI);
+  updateScrollUI();
+
+  // Voltar ao topo
+  btnTopo.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 
   // Fechar menu mobile ao clicar em um link
@@ -67,40 +78,44 @@ document.addEventListener('DOMContentLoaded', function () {
     'Formado em Recursos Humanos'
   ];
 
-  let fraseIndex = 0;
-  let charIndex = 0;
-  let deletando = false;
+  if (reduceMotion) {
+    typedEl.textContent = frases[0];
+  } else {
+    let fraseIndex = 0;
+    let charIndex = 0;
+    let deletando = false;
 
-  function digitar() {
-    const atual = frases[fraseIndex];
-    if (!deletando) {
-      charIndex++;
-      typedEl.textContent = atual.substring(0, charIndex);
-      if (charIndex === atual.length) {
-        deletando = true;
-        setTimeout(digitar, 1800);
-        return;
+    function digitar() {
+      const atual = frases[fraseIndex];
+      if (!deletando) {
+        charIndex++;
+        typedEl.textContent = atual.substring(0, charIndex);
+        if (charIndex === atual.length) {
+          deletando = true;
+          setTimeout(digitar, 1800);
+          return;
+        }
+        setTimeout(digitar, 90);
+      } else {
+        charIndex--;
+        typedEl.textContent = atual.substring(0, charIndex);
+        if (charIndex === 0) {
+          deletando = false;
+          fraseIndex = (fraseIndex + 1) % frases.length;
+        }
+        setTimeout(digitar, 50);
       }
-      setTimeout(digitar, 90);
-    } else {
-      charIndex--;
-      typedEl.textContent = atual.substring(0, charIndex);
-      if (charIndex === 0) {
-        deletando = false;
-        fraseIndex = (fraseIndex + 1) % frases.length;
-      }
-      setTimeout(digitar, 50);
     }
+
+    digitar();
   }
 
-  digitar();
-
   // Animações ao rolar (reveal)
-  const revealEls = document.querySelectorAll('.service-card, .info-card, .skill-card, .contact-card, .link-btn');
+  const revealEls = document.querySelectorAll('.service-card, .info-card, .skill-card, .contact-card, .link-btn, .project-card');
 
   revealEls.forEach(function (el, index) {
     el.classList.add('reveal');
-    el.style.transitionDelay = index % 4 * 0.1 + 's';
+    el.style.transitionDelay = (index % 4) * 0.1 + 's';
   });
 
   const observer = new IntersectionObserver(
@@ -123,45 +138,73 @@ document.addEventListener('DOMContentLoaded', function () {
   // Barras de progresso das habilidades ao aparecerem
   const skillsSection = document.getElementById('habilidades');
 
-  const skillObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          const bars = entry.target.querySelectorAll('.progress-bar');
-          bars.forEach(function (bar) {
-            const level = bar.closest('.skill-card').getAttribute('data-level');
-            setTimeout(function () {
-              bar.style.width = level + '%';
-            }, 200);
-          });
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
   if (skillsSection) {
+    const skillObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.progress-bar').forEach(function (bar) {
+              const level = bar.closest('.skill-card').getAttribute('data-level');
+              setTimeout(function () {
+                bar.style.width = level + '%';
+              }, 200);
+            });
+            skillObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
     skillObserver.observe(skillsSection);
   }
 
-  // Formulário de contato (simulação de envio)
+  // Mensagens de validação em português
+  const formFields = ['nome', 'email', 'mensagem'];
+  formFields.forEach(function (id) {
+    const field = document.getElementById(id);
+    field.addEventListener('invalid', function () {
+      if (field.validity.valueMissing) {
+        field.setCustomValidity('Preencha este campo.');
+      } else if (field.validity.typeMismatch) {
+        field.setCustomValidity('Informe um e-mail válido.');
+      }
+    });
+    field.addEventListener('input', function () {
+      field.setCustomValidity('');
+    });
+  });
+
+  // Formulário de contato (abre o e-mail já preenchido)
   const form = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
+  const emailDestino = form.getAttribute('data-email');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.checkValidity()) {
       form.classList.add('was-validated');
+      form.reportValidity();
       return;
     }
     form.classList.remove('was-validated');
+
     const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensagem = document.getElementById('mensagem').value.trim();
+
+    const assunto = 'Contato pelo portfólio - ' + nome;
+    const corpo = 'Nome: ' + nome + '\r\nE-mail: ' + email + '\r\n\r\n' + mensagem;
+    window.location.href =
+      'mailto:' + emailDestino +
+      '?subject=' + encodeURIComponent(assunto) +
+      '&body=' + encodeURIComponent(corpo);
+
     formStatus.innerHTML =
-      '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
-      'Obrigado, ' + nome + '! Mensagem enviada. Em breve entrarei em contato.' +
+      '<div class="alert alert-info alert-dismissible fade show" role="alert">' +
+      'Seu aplicativo de e-mail foi aberto com a mensagem pronta para envio.' +
       '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button></div>';
-    form.reset();
+
     setTimeout(function () {
       if (formStatus.firstChild) {
         formStatus.firstChild.classList.remove('show');
