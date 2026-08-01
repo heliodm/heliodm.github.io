@@ -16,12 +16,12 @@
   <meta property="og:site_name" content="Hélio Mendonça">
   <meta property="og:title" content="Hélio Mendonça | Desenvolvedor Web">
   <meta property="og:description" content="Portfólio e currículo de Hélio Mendonça - Desenvolvedor Web (PHP, MySQL, HTML, CSS, JavaScript, Bootstrap, WordPress e Moodle)">
-  <meta property="og:image" content="https://heliodm.github.io/img/favicon.svg">
+  <meta property="og:image" content="https://heliodm.github.io/img/og-image.png">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Hélio Mendonça | Desenvolvedor Web">
   <meta name="twitter:description" content="Portfólio e currículo de Hélio Mendonça - Desenvolvedor Web.">
-  <meta name="twitter:image" content="https://heliodm.github.io/img/favicon.svg">
+  <meta name="twitter:image" content="https://heliodm.github.io/img/og-image.png">
 
   <script type="application/ld+json">
   {
@@ -69,7 +69,6 @@
           <li class="nav-item"><a class="nav-link active" href="#inicio">Início</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
           <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
           <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>
           <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
@@ -277,64 +276,6 @@
     </div>
   </section>
 
-  <!-- Projetos -->
-  <section id="projetos" class="section">
-    <div class="container">
-      <h2 class="section-title text-center">Projetos</h2>
-      <p class="section-subtitle text-center">Alguns trabalhos que desenvolvi</p>
-      <div class="row g-4 mt-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card">
-            <div class="project-thumb thumb-1"><i aria-hidden="true" class="bi bi-window-stack"></i></div>
-            <div class="project-body">
-              <h5>Landing Page Institucional</h5>
-              <p>Página de apresentação responsiva, com animações e formulário de contato.</p>
-              <div class="project-tags">
-                <span>HTML</span><span>CSS</span><span>Bootstrap</span><span>JavaScript</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/heliodm" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Código</a>
-                <a href="#" class="btn btn-sm btn-primary">Ver demo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card">
-            <div class="project-thumb thumb-2"><i aria-hidden="true" class="bi bi-database-gear"></i></div>
-            <div class="project-body">
-              <h5>Sistema Web em PHP</h5>
-              <p>Sistema dinâmico com cadastro, login e painel administrativo em PHP e MySQL.</p>
-              <div class="project-tags">
-                <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/heliodm" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary">Código</a>
-                <a href="#" class="btn btn-sm btn-primary">Ver demo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card">
-            <div class="project-thumb thumb-3"><i aria-hidden="true" class="bi bi-wordpress"></i></div>
-            <div class="project-body">
-              <h5>Site WordPress</h5>
-              <p>Site institucional com tema personalizado, otimizado para busca e responsivo.</p>
-              <div class="project-tags">
-                <span>WordPress</span><span>PHP</span><span>CSS</span>
-              </div>
-              <div class="project-actions">
-                <a href="#" class="btn btn-sm btn-outline-primary">Código</a>
-                <a href="#" class="btn btn-sm btn-primary">Ver demo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Serviços -->
   <section id="servicos" class="section">
     <div class="container">
@@ -458,47 +399,30 @@
   <section id="contato" class="section section-alt">
     <div class="container">
       <h2 class="section-title text-center">Contato</h2>
-      <p class="section-subtitle text-center">Ficou interessado? Vamos conversar!</p>
-      <div class="row justify-content-center mt-5">
-        <div class="col-lg-8">
-          <form id="contact-form" data-email="contato@heliodm.com" novalidate>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Seu nome" autocomplete="name" required>
-              </div>
-              <div class="col-md-6">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="email" placeholder="seu@email.com" autocomplete="email" required>
-              </div>
-              <div class="col-12">
-                <label for="mensagem" class="form-label">Mensagem</label>
-                <textarea class="form-control" id="mensagem" rows="5" placeholder="Conte sobre o seu projeto..." autocomplete="off" required></textarea>
-              </div>
-              <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary btn-lg">Enviar mensagem</button>
-              </div>
-            </div>
-          </form>
-          <div id="form-status" class="text-center mt-3" aria-live="polite"></div>
+      <p class="section-subtitle text-center">Ficou interessado? Fale comigo!</p>
+      <div class="row mt-5 g-4 text-center justify-content-center">
+        <div class="col-md-6 col-lg-3">
+          <div class="contact-card">
+            <i aria-hidden="true" class="bi bi-whatsapp"></i>
+            <h6>WhatsApp</h6>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">(00) 00000-0000</a>
+          </div>
         </div>
-      </div>
-      <div class="row mt-5 g-4 text-center">
-        <div class="col-md-4">
+        <div class="col-md-6 col-lg-3">
           <div class="contact-card">
             <i aria-hidden="true" class="bi bi-envelope"></i>
             <h6>E-mail</h6>
             <a href="mailto:contato@heliodm.com">contato@heliodm.com</a>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6 col-lg-3">
           <div class="contact-card">
             <i aria-hidden="true" class="bi bi-github"></i>
             <h6>GitHub</h6>
             <a href="https://github.com/heliodm" target="_blank" rel="noopener">github.com/heliodm</a>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6 col-lg-3">
           <div class="contact-card">
             <i aria-hidden="true" class="bi bi-linkedin"></i>
             <h6>LinkedIn</h6>

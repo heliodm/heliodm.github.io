@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Animações ao rolar (reveal)
-  const revealEls = document.querySelectorAll('.service-card, .info-card, .skill-card, .contact-card, .link-btn, .project-card');
+  const revealEls = document.querySelectorAll('.service-card, .info-card, .skill-card, .contact-card, .link-btn');
 
   revealEls.forEach(function (el, index) {
     el.classList.add('reveal');
@@ -158,60 +158,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     skillObserver.observe(skillsSection);
   }
-
-  // Mensagens de validação em português
-  const formFields = ['nome', 'email', 'mensagem'];
-  formFields.forEach(function (id) {
-    const field = document.getElementById(id);
-    field.addEventListener('invalid', function () {
-      if (field.validity.valueMissing) {
-        field.setCustomValidity('Preencha este campo.');
-      } else if (field.validity.typeMismatch) {
-        field.setCustomValidity('Informe um e-mail válido.');
-      }
-    });
-    field.addEventListener('input', function () {
-      field.setCustomValidity('');
-    });
-  });
-
-  // Formulário de contato (abre o e-mail já preenchido)
-  const form = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
-  const emailDestino = form.getAttribute('data-email');
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!form.checkValidity()) {
-      form.classList.add('was-validated');
-      form.reportValidity();
-      return;
-    }
-    form.classList.remove('was-validated');
-
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const mensagem = document.getElementById('mensagem').value.trim();
-
-    const assunto = 'Contato pelo portfólio - ' + nome;
-    const corpo = 'Nome: ' + nome + '\r\nE-mail: ' + email + '\r\n\r\n' + mensagem;
-    window.location.href =
-      'mailto:' + emailDestino +
-      '?subject=' + encodeURIComponent(assunto) +
-      '&body=' + encodeURIComponent(corpo);
-
-    formStatus.innerHTML =
-      '<div class="alert alert-info alert-dismissible fade show" role="alert">' +
-      'Seu aplicativo de e-mail foi aberto com a mensagem pronta para envio.' +
-      '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button></div>';
-
-    setTimeout(function () {
-      if (formStatus.firstChild) {
-        formStatus.firstChild.classList.remove('show');
-        setTimeout(function () {
-          formStatus.innerHTML = '';
-        }, 300);
-      }
-    }, 6000);
-  });
 });

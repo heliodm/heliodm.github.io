@@ -8,7 +8,8 @@ Landing page em formato de currículo/portfólio para **Hélio Mendonça**, cons
 - **Sobre** - Formação em Recursos Humanos e paixão por programação
 - **Habilidades** - PHP, MySQL, HTML, CSS, JavaScript, Bootstrap, WordPress e Moodle
 - **Serviços** - O que é oferecido
-- **Contato** - Formulário e redes sociais
+- **Links** - Atalhos para redes sociais e currículo
+- **Contato** - Canais de contato direto (WhatsApp, e-mail e redes)
 
 ## Publicação no GitHub Pages
 
@@ -37,5 +38,6 @@ Acesse `http://localhost:8000`.
 
 ## Personalização
 
-- Edite os dados de contato (e-mail, LinkedIn) em `index.html`.
+- Edite os dados de contato (e-mail, LinkedIn, WhatsApp) em `index.html`.
+- Substitua o arquivo `assets/CV-Helio-Mendonca.pdf` pelo currículo real.
 - Ajuste cores em `css/style.css` através das variáveis em `:root`.
